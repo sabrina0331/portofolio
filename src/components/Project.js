@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import sanityClient from "../client.js";
 
 export default function Project() {
-    const [projectData, setProject] = useState(null);
+    const [projectData, setProjectData] = useState(null);
     useEffect(() => {
         sanityClient
             .fetch(`*[_type == "project"]{
@@ -14,7 +14,7 @@ export default function Project() {
                 link,
                 tags
             }`)
-            .then((data) => setProject(data))
+            .then((data) => setProjectData(data))
             .catch(console.error)
     })
     return (
@@ -27,7 +27,7 @@ export default function Project() {
                     {projectData && projectData.map((project, index) => (
                     <article className="relative rounded-lg shadow-xl bg-white p-16">
                         <h3 className="text-gray-800 text-3xl font-bold mb-2 hover:text-red-700">
-                            <a href={project.link} alt={project.title} target="_blank" rel="noopener noreferrer"></a>
+                            <a href={project.link} alt={project.title} target="_blank" rel="noopener noreferrer">{project.title}</a>
                         </h3>
                         <div className='text-gray-500 text-xs space-x-4'>
                             <span>
