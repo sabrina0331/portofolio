@@ -27,7 +27,7 @@ export default function Project() {
                     {projectData && projectData.map((project, index) => (
                     <article className="relative rounded-lg shadow-xl bg-white p-16">
                         <h3 className="text-gray-800 text-3xl font-bold mb-2 hover:text-red-700">
-                            <a href={project.link} alt={project.title} target="_blank" rel="noonpener noreferrer"></a>
+                            <a href={project.link} alt={project.title} target="_blank" rel="noopener noreferrer"></a>
                         </h3>
                         <div className='text-gray-500 text-xs space-x-4'>
                             <span>
